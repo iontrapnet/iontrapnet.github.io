@@ -1,0 +1,34 @@
+---
+layout: szhang_default 
+title: Notes
+permalink: /notes/
+---
+
+{% for post in site.posts %}
+    {% if post.category == 'notes' %}
+        {% if post.pdf %}
+            <a href="{{ post.pdf }}">
+                <img src="/static/images/pdf32.png" align="right">
+            </a>
+        {% endif %}
+        <span class="index_date"> {{ post.date | date: "%Y/%m/%d" }}</span>
+        &nbsp;-&nbsp;
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        {% if post.comments %}
+            | <a href="{{ post.url }}#disqus_thread">{{ post.title }}</a>
+        {% endif %}
+        {% if post.introduction %}
+            </br>
+            {{ post.introduction }}
+        {% endif %}
+        {% if post.cover %}
+            <div class="center">
+            <a href="{{ post.url }}"><img src="{{ post.cover }}" width="75%"></a>
+            </div>
+        {% endif %}
+        {% if post.introduction or post.cover %}
+            <p align="right"><a href="{{ post.url }}">Read more...</a></p>
+        {% endif %}
+        <hr/>
+    {% endif %}
+{% endfor %}
