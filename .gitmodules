@@ -1,3 +1,6 @@
 [submodule "static/spring"]
 	path = static/spring
 	url = https://github.com/iontrapnet/spring.git
+[submodule "_includes/wiki"]
+	path = _includes/wiki
+	url = https://github.com/iontrapnet/iontrapnet.github.io.wiki.git
