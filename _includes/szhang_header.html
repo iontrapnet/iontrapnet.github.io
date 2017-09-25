@@ -9,14 +9,26 @@
         <link rel="stylesheet" href="/stylesheets/github-markdown.css">
         <link rel="stylesheet" href="/static/minimal/stylesheets/pygment_trac.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        {% if page.mathjax %}
+        {% if page.date == Nil %}
+        <script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        {% endif %}
+        {% if page.katex %}
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+        <script src="//cdn.bootcss.com/KaTeX/0.5.1/katex.min.js"></script>
+        <script src="//cdn.bootcss.com/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+        </script>
+        {% endif %}
+        {% if page.mathjax or page.math %}
         <script type="text/x-mathjax-config">
           MathJax.Hub.Config({
             TeX: {
               equationNumbers: {
-                autoNumber: "AMS"
-              }
+                autoNumber: "AMS",
+                useLabelIds: true
+              },
             },
+            "HTML-CSS": {linebreaks: {automatic: true}},
+            SVG: {linebreaks: {automatic: true}},
             tex2jax: {
               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
@@ -24,9 +36,14 @@
             }
           });
         </script>
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <!--script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+        <script src="//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML-full"></script>
         {% endif %}
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        {% if page.highlight or page.code %}
+        <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/github.min.css">
+        <script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
+        {% endif %}
+        <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
