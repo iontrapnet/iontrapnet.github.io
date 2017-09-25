@@ -4,3 +4,6 @@
 [submodule "_includes/wiki"]
 	path = _includes/wiki
 	url = https://github.com/iontrapnet/iontrapnet.github.io.wiki.git
+[submodule "static/minimal"]
+	path = static/minimal
+	url = https://github.com/christopherpoole/minimal
