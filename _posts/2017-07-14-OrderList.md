@@ -1,6 +1,6 @@
 ---
 layout: szhang_note
-title: �ɹ��嵥
+title: 采购清单
 category: notes
 ---
 
