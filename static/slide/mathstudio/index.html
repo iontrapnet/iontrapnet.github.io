@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MathStudio</title>
+<meta name="keywords" content="mathstudio,spacetime,matlab,mathematica,maple,iphone,ipad,graphing,calculator">
+<meta name="description" content="Online computational software for students, teachers, engineers and everyone in between.">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-itunes-app" content="app-id=956033107, affiliate-data=11lb7t">
+<style>
+body { overflow: hidden; }
+#signInButton { display: none; }
+/* #frameLeft, #frameRight { -webkit-overflow-scrolling: touch; } */
+#frameRightTop button, #frameRightTop button.selected { width: calc(25% - 12px); }
+</style>
+<link href="mathstudio.min.css" rel="stylesheet" type="text/css">
+<link href="web.css" rel="stylesheet" type="text/css">
+<link href="web-hover.css" rel="stylesheet" type="text/css" id="touchscreen" disabled="">
+<style id="fullscreen">
+body
+{
+	overflow: visible;
+}
+
+#frameTop, #frameLeft
+{
+/*	position: static;
+	margin-left: 80px; */
+	right: 0;
+}
+
+#frameRight, #frameRightTop
+{
+	display: none;
+}
+
+#toggleCatalogButton
+{
+	background: url(images/catalog-show.svg) no-repeat center center;
+}
+</style>
+<style>
+table.text td,div.entry textarea, div.single, div.multi,div.textarea, div.multi-textarea,div.textbox input[type=text] { font-size: 16px; }div.textarea { padding: 6px; }div.single { padding: 6px; }</style>
+<script src="mathstudio.min.js" type="text/javascript"></script>
+<script>window.onload = window.MathStudio;</script>
+</head>
+<body class="MathStudio">
+
+<div id="frameTop">
+	<div id="frameTopInner">
+		<div class="menu-bar">
+			<button class="menu-item" id="mathStudioButton"><b>MathStudio</b></button>
+			<button class="menu-item" id="newFileButton">New</button>
+		</div>
+		<div id="fileMenu" style="display:none;">
+			<div class="menu-bar">
+				<button class="menu-item" id="openFileButton">Open</button>
+			</div>
+			<div class="menu-bar">
+				<div id="saveFileTextField" contenteditable="true" class="new-file-box" style="float:left; margin-left:0.5em;">Untitled</div>
+				<input id="fileID" type="hidden" value="">
+				<input id="fileTitle" type="hidden" value="">
+				<input id="mathStudioFolderID" type="hidden" value="">
+				<div class="menu-item-text" style="padding-left:0"><div class="saved-file-box">.math</div></div>
+				<button class="menu-item" id="saveFileButton">Save</button>
+			</div>
+		</div>
+		<button class="menu-item" id="toggleCatalogButton"></button>
+	</div>
+</div>
+
+<div id="frameLeft" class="scrollable web">
+	<div id="MathStudio" data-entries='0' data-compute=0></div>
+	<div id="fileViewer"></div>
+	<div id="aboutViewer">
+		<div id="fileCommands">
+			<div>Commands</div>
+			<div><button class="button" id="insertEntry">Insert Entry</button></div>
+			<div><button class="button" id="deleteEntry">Delete Entry</button></div>
+			<div style="display:none;"><button class="button" id="orderEntries">Order Entries</button></div>
+			<div><button class="button" id="evaluateAll">Evaluate All</button></div>
+		</div>		
+		
+		<div id="shareFile">
+			<div>Share your MathStudio file.</div>
+			<div id="shareLinkText" onclick="if(document.selection){var range=document.body.createTextRange();range.moveToElementText(this);range.select()}else if(window.getSelection){var range=document.createRange();range.selectNode(this);window.getSelection().addRange(range)}"></div>		
+			<!--div id="createShortURL"><a id="shortURL" href="javascript:void(0)">Create short URL</a></div-->			
+		</div>
+	</div>
+	<div id='computing'>
+		<div class='expression'><div class='computing-image'></div><span class='computing-text'>Computing</span>&nbsp;</div>
+	</div>
+	<div id='importFile' style="display:none; padding:10px;">
+		<hr style="margin-bottom:8px">
+		<div style="padding:4px;">Upload a MathStudio file from your computer...</div>
+		<div style="padding:2px;"><input id="uploadFile" type="file"></div>
+	</div>
+</div>
+
+<div id='frameRightTop'>
+	<button>Catalog</button>
+	<button>Search</button>
+	<button>Options</button>
+	<button>Help</button>
+</div>
+
+<div id="frameRight" class="scrollable">
+	<div id='Catalog' style="display:none;"></div>
+	<div id='Search' style="display:none;"></div>
+	<div id='Options' style="display:none;"></div>
+	<div id='Help'></div>
+</div>
+
+<div id="fullscreen-entry">
+	<div class="entry" id="-1">
+		<div class="input"></div>
+		<div class="output"></div>
+	</div>
+</div>
+
+<script>
+// remove compute.js ASM_CONSTS first element
+// self.location.hostname=="mathstud.io"||self.location.hostname=="mathstudio.app"?1:0
+function GET()  {
+    var url = document.location.href;
+    var loc = url.indexOf('?');
+    if (loc < 0) return;
+    var ms = document.getElementById('MathStudio');
+    var arr = url.substring(loc + 1);
+    if (arr.startsWith('file')) {
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari
+            var request = new XMLHttpRequest();
+        }
+        else {
+            // code for IE6, IE5
+            var request = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        // load
+        request.open('GET', arr.replace('file=',''), false);
+        request.send();
+        arr = request.responseText;
+    }
+    arr = arr.split("&");
+    var cnt = 0;
+    for (var i in arr) {
+        var val = arr[i];
+        if (val.startsWith('input')) {
+            ++cnt;
+            ms.setAttribute('data-input'+(1+parseInt(val.match(/\d+/)[0])),decodeURIComponent(val.split('=')[1]));
+        } else {
+            var kv = val.split('=');
+            ms.setAttribute('data-'+decodeURIComponent(kv[0]),decodeURIComponent(kv[1]));
+        }
+    }
+    if (cnt > 0) {
+        ms.setAttribute('data-entries',''+cnt);
+        ms.setAttribute('data-compute', 1);
+        document.getElementById('fullscreen').disabled=true;
+    }
+}
+GET();
+</script>
+</body></html>

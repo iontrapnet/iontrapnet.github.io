@@ -1,0 +1,110 @@
+a.link:hover
+{
+	color: darkmagenta;
+}
+
+.share-menu-item:hover
+{
+	color: darkmagenta;	
+	text-decoration: none;
+}
+.share-form > div > button:hover
+{
+	background-color: black;
+}
+
+div.share-app-icon img:hover
+{
+	background-color: #ddd;
+	border-color: #333;
+	color: black;
+}
+
+button.share-edit:hover
+{
+	background-color: rgb(100, 0, 100);
+}
+button.share-submit:hover
+{
+	background-color: black;
+}
+button.menu-item:hover
+{
+    background-color: #fdf4ff;
+    color: darkmagenta;
+}
+
+.grid-item a:not(.button):hover
+{
+	text-decoration: underline;
+}
+
+#AskExamples > div.ask-heading:hover
+{
+	background-color: #555;
+}
+#AskExamples > ul > li > a:hover
+{
+	text-decoration: underline;
+}
+#AskMathStudio #mathStudioButton:hover
+{
+	color: darkmagenta;
+}
+
+#shortURL:hover
+{
+	color:darkmagenta;
+}
+
+#AskComputeButton:hover
+{
+	background-color: #777;
+}
+
+/* MathStudio */
+
+/* , #Catalog > div > button.selected */
+#Catalog > div > button:hover, #Help button:hover, #Catalog > div > button:hover > span
+{
+	background-color: #eee;
+}
+
+#Catalog div.manual button:hover
+{
+	background-color: #eee;
+}
+
+#Search > div > div:hover
+{
+	background-color: #eee;
+	cursor: hand;
+	cursor: pointer;
+}
+#Search > div > div:hover > span
+{
+	color: white;
+}
+.button:hover
+{
+	background-color: #555;
+}
+#fileViewer > div:hover
+{
+	font-weight: bold;
+/*	background-color: #fdf4ff;
+	border-radius: 6px; */
+}
+
+/* Manual */
+
+a.manual-link:hover
+{
+	color: #ff8000;
+}
+
+div.manual-cell:hover
+{
+	background-color: #eee;
+}
+

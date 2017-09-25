@@ -1,0 +1,4 @@
+{
+"name": "Builtin Commands",
+"content": "// This example demonstrates built-in commands.\n //\n VectorSize 8\n \n SigmaY 2\n SigmaX 3\n SigmaZ 4\n QFT 0, 8\n \n // Control execution speed; delay between steps in ms.\n Delay 1000\n \n // Control visualization mode: 0 - 2D, 1 - 2D+Phase, 2 - 3D.\n SetViewMode 0\n SetViewMode 2\n \n // Delay 1 enables full speed execution.\n Delay 1\n \n // Control angle of rotation in 3D mode.\n SetViewAngle Math.PI / 4\n \n // Display HTML string overlayed on state visualization.\n Display \"<h1>Hello Quantum!</h1>\"\n \n // Output plain string to console window.\n Print \"Hello Console.\"\n \n // Software breakpoint that stops execution.\n Breakpoint"
+}

@@ -1,0 +1,1322 @@
+/* Interface
+----------------------------------------- */
+@font-face
+{
+    font-family: Meslo;
+    src: url(meslo.woff);
+}
+
+/* Fonts
+----------------------------------------- */
+table.text td, div.entry textarea, div.single, div.multi,
+div.textarea, div.multi-textarea, div.textbox input[type=text]
+{
+	font-family: "Meslo LG S", "Source Code Pro Medium", Meslo, Monaco, "Lucida Console", monospace;
+	font-size: 14px;
+	line-height: 1.3em; 
+	-webkit-font-variant-ligatures: no-common-ligatures;
+/*	-webkit-font-smoothing: subpixel-antialiased; */
+}
+
+body, button, svg.plot text, svg.plot text.calculations, 
+div.input > button, div.expression:before, div.plot:before, div.message:before,
+table.text tr td:first-child, input
+{
+	font-family: -apple-system, "Trebuchet MS", Tahoma, Geneva, sans-serif;
+/*	-webkit-font-smoothing: subpixel-antialiased; */
+}
+
+#sideNav
+{
+	position: fixed; 
+	top: 0; 
+	left: 0;
+	width: 80px; 
+	height: 100%;
+	overflow: hidden;
+	color: white;
+	padding: 8px;
+	background-color: #333;
+	border-right: black solid 2px;
+/*	z-index: 1000; */
+}
+#sideNav div.nav-item
+{
+	line-height: 0;
+	font-size: 14px;
+	padding-top: 6px;
+	width: 100%;
+	height: 80px;
+	color: #eee;
+	margin-bottom: 12px;
+	text-align: center;
+}
+#sideNav div.nav-item.selected
+{
+	background-color: rgba(128, 128, 128, 0.9);
+	border-radius: 6px;
+}
+#sideNav div.nav-item a
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #eee;
+	border: 0;
+}
+#sideNav div.nav-item img
+{
+	width: 48px;
+	height: 48px;
+	border: 0;
+}
+
+#bottomNav
+{
+	color: white;
+	padding: 0;
+	display: none;
+/*	margin:12px;
+	border-radius: 6px;
+	overflow: hidden; */
+}
+#bottomNav div.nav-item
+{
+	float: left;
+	width: 20%;
+	font-size: 13px;
+	height: 64px;
+	border-radius: 0;
+	line-height: 0;
+	padding-top: 6px;
+	color: #999;
+	text-align: center;
+	background: #333;
+	border-bottom: 1px solid #555;
+}
+#bottomNav div.nav-item.selected
+{
+	color: white;
+}
+#bottomNav div.nav-item img
+{
+	width: 32px;
+	height: 32px;
+	opacity: 0.5;
+}
+#bottomNav div.nav-item.selected img
+{
+	opacity: 1;
+}
+
+#pageFrame
+{
+	margin-left: 100px;
+	margin-top: 12px;
+}
+
+#frameTop
+{
+	position: fixed; 
+	top: 0; 
+	left: 0px;
+	right: 300px;
+	line-height: 2em;
+	overflow: hidden;
+}
+/*
+#frameBottom
+{
+	position: absolute;
+	left: 0;
+	right: 300px;
+	bottom: 0;
+
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	text-align: center;
+	
+	line-height: 0;
+}
+*/
+#frameLeft, #frameRight
+{
+	position: fixed; 
+	bottom: 0;
+	margin: 0;
+	background: #fff;
+	overflow: auto;
+}
+#frameLeft
+{
+	top: 2em;
+	left: 0px;
+	right: 300px;
+	background: white;
+}
+#frameLeft.fullscreen
+{
+	top: 0;
+	left: 0;
+	right: 0;
+}
+#frameLeft.fullscreen div.entry
+{
+	height: 0;
+}
+
+#frameRight
+{
+	top: 2em;
+	left: auto;
+	right: 0;
+	width: 300px;
+	background: white;	
+}
+
+#frameRight > div
+{
+	font-size: 15px;
+}
+
+#pageContent
+{
+	margin-left: 80px;
+}
+
+#frameRightTop
+{
+	position: fixed; 
+	line-height: 2em;
+	height: 2em;
+	min-height: 2em;
+	overflow: hidden;
+
+	top: 0; 
+	left: auto;
+	right: 0;
+	width: 300px;
+}
+
+#frameRightTop button, #frameRightTop button.selected
+{
+	background-color: transparent;
+	border-style: none;
+	cursor: pointer;
+	cursor: hand;
+	float: left;
+	margin-top: 0.5em;
+	height: 1.5em;
+	line-height: 1.5em;
+/*	width: 80px;
+	width: 63px; */
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0;
+}
+#frameRightTop button:first-child
+{
+	margin-left: 10px;
+}
+#frameRightTop button
+{
+	font-size: 15px;
+	color: white;
+}
+#frameRightTop button.selected
+{
+	font-weight: bold;
+	font-size: 15px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+#welcome
+{
+	background-color: black;
+	color: white;
+	position: fixed;
+	width: 300px;
+	height: 300px;
+	z-index: 1000;
+	border-radius: 6px;
+}
+#welcomeInner
+{
+
+}
+
+#fileViewer
+{
+	display: none;
+	padding: 8px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#aboutViewer
+{
+	display: none;
+	padding: 8px;
+}
+#aboutViewer > div
+{
+	margin-bottom: 1em;
+}
+#aboutViewer > div > div
+{
+	padding: 4px;
+	word-break: break-all;
+}
+#aboutViewer > div > div:first-child
+{
+	font-weight: bold;
+	padding: 0;
+}
+#createShortURL
+{
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 0;
+}
+#shareLinkText
+{
+	outline: none;
+	background-color:#eee;
+	border-radius: 6px;
+	margin-top: 4px;
+	margin-left: 4px;
+	padding: 8px;
+}
+#shortURL
+{
+	color:blue;
+}
+
+hr
+{
+	margin: 0;
+	height: 2px;
+	border: 0;
+	background-color: #ccc;
+	width: 100%;
+	text-align: center;
+}
+#fileDrop
+{
+	border: 2px dashed #bbb;
+	border-radius: 6px;
+	padding: 4px;
+}
+.menu-item
+{
+	font-size: 18px;
+	float: left;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	height: 2em;
+	border-style: none;
+	background-color: transparent;
+	color: white;
+	white-space: nowrap;
+}
+button.menu-item
+{
+	cursor: pointer;
+}
+
+#toggleCatalogButton
+{
+	background: url(images/catalog-hide.svg) no-repeat center center;
+	float: right;
+	width: 2em;	
+}
+
+div.menu-item-text
+{
+	float:left;
+	padding-left:0.5em;
+	padding-right:0.5em;
+	line-height: 2em;
+	cursor: default;
+	
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none;
+}
+
+div.file-menu-divider
+{
+	float:left;
+	margin-left:0.5em;
+	margin-right:0.5em;
+	border-left:1px solid white;
+	height:1.1em;
+	margin-top:0.45em;
+}
+ul
+{
+	margin: 0;
+}
+
+#toggleFullscreenButton
+{
+	background-image: url(images/fullscreen.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 24px;
+	float: left;
+	padding-left:0.5em;
+	padding-right:0.5em;
+	line-height: 2em;	
+	cursor: hand;
+	cursor: pointer;
+}
+
+div.image
+{
+	display: inline-block;
+}
+
+div.new-file-box, div.saved-file-box
+{
+	border-radius: 3px;
+	outline: 0;
+	padding: 0.25em 0.4em 0.25em 0.4em;
+	border: 0;
+	font-size: 14px;
+	line-height: 1em;
+	margin-top:0.6em;
+	margin-right: 1px;
+	background-color: darkmagenta;
+    color: #fdf4ff;
+}
+div.saved-file-box
+{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#googleAuth2
+{
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	left: -100px;
+}
+
+#signInButton
+{
+/*	min-width: 240px; */
+}
+
+/* colors */
+#frameTop, #frameRightTop
+{
+    background-color: darkmagenta;
+    color: white;
+}
+#frameRightTop
+{
+/*	box-shadow: inset 2px 0px 0 rgba(0, 0, 0, 0.5); */
+}
+#frameRight
+{
+/*    border-left: darkmagenta 2px solid; */
+	border-left: #555 2px solid;
+}
+/*
+#frameBottom
+{
+    border-top: darkmagenta 2px solid;
+}
+#frameBottom
+{
+	background-color: white;
+}
+*/
+#frameRightTop button.selected
+{
+    color: darkmagenta;
+}
+div.new-file-box, button.menu-item.selected
+{
+    background-color: white;
+    color: darkmagenta;
+}
+
+#fileCommands > div
+{
+	display: inline-block;
+}
+#fileCommands > div:first-child
+{
+	display: block;
+}
+
+#copyright
+{
+	font-size: 14px;
+	padding: 6px;
+	text-align: center;
+	background: transparent;
+/*	background-color: #333; */
+/*	margin-top: 0.5em; */
+}
+#copyright > a
+{
+	color: #777;
+	background: transparent;
+	text-decoration: underline;
+}
+
+#Logo
+{
+	text-align: center;
+	margin-top: 6em;
+	height: 170px;
+	background-image: url("../images/mathstudiologo.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+a.link
+{
+	font-style: italic;
+	color: black;
+	word-break: break-all;
+	text-decoration: underline;
+}
+
+/* Welcome
+-------------------------------------- */
+h2
+{
+	color: darkmagenta;
+	margin: 0;
+	margin-bottom: 0.5em;	
+	font-style: italic;
+}
+
+div.appstore
+{
+	background-color: darkmagenta;
+	color: white;
+	display: inline-block;
+	padding: 10px;
+	font-size: 30px;
+	border-radius: 10px;
+	margin-bottom: 4px;
+	margin-right: 12px;
+}
+div.appstore > img
+{
+	float: left;
+	margin-right: 8px;
+}
+div.appstore > div
+{
+	text-align: left;
+	display: table-row;
+}
+div.appstore > div:nth-child(2)
+{
+	font-size: 15px;
+	margin-bottom: 2px;
+}
+
+div.welcome-box
+{
+
+}
+div.welcome-box:nth-child(2n)
+{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+div.welcome-box > div:first-child
+{
+	text-align: left;
+	display: table-cell;
+	vertical-align: top;
+	padding: 8px;
+	padding-left: 32px;
+}
+div.welcome-box > div:nth-child(2)
+{
+	text-align: left;
+	display: table-cell;	
+	width: 404px;
+	vertical-align: top;
+	padding-right: 32px;
+}
+
+hr.welcome-break
+{
+	max-width: 95%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border: #777 dashed 1px;
+	height:0;
+	background-color:white;
+}
+
+div.welcome-text
+{
+	text-align: left;
+	margin: 8px;
+	margin-left: 32px;
+	margin-right: 32px;
+}
+
+span.highlight
+{
+	color: darkmagenta;
+	font-weight: bold;
+}
+
+a.button.welcome
+{
+	margin-top: 1em;
+}
+
+div.welcome-box div.single, div.welcome-box table.text tr td:nth-child(2)
+{
+	color: black;
+}
+
+div.welcome-box div.input
+{
+	width: 400px;
+}
+
+/* Share
+----------------------------------------- */
+body.gray
+{
+	background: rgb(245, 245, 245);
+}
+
+#ShareHeader
+{
+	background-color: darkmagenta;
+	color: white;
+	padding: 2px;
+}
+#ShareHeader > div
+{
+	margin: 0.5em;
+	display: inline-block;
+}
+#ShareHeader div:first-child
+{
+	font-weight: bold;
+}
+#ShareHeader div:nth-child(2)
+{
+	float: right;
+}
+
+#ShareGallery
+{
+	text-align: center;
+}
+#ShareGallery .button
+{
+	margin-top: 0.5em;
+}
+
+#ShareEntry
+{
+	width: 100%;
+	text-align: left;
+	float: left;
+	box-sizing: border-box;
+	padding: 12px;
+}
+#ShareEntry h2
+{
+	margin: 0;
+	margin-bottom: 0.5em;
+	padding: 0;
+	font-size: 22px;
+	color: darkmagenta;
+}
+#ShareEntry > div
+{
+	text-align: left;
+	width: 80%;
+	left: 10%;
+	position: relative;
+}
+#ShareEntry img
+{
+	max-width: 400px;
+	max-height: 400px;
+	border: 1px solid #ccc;
+	float: left;
+	margin-right: 1em;
+	box-sizing: border-box;
+}
+
+#ShareGraphs
+{
+	padding-top: 1em;
+}
+#ShareGraphs .button.share
+{
+	float: right;
+}
+#ShareGraphs
+{
+	text-align: center;
+}
+#ShareGraphs div.entry
+{
+	display: inline-block;
+	width: auto;
+	margin: 4px 10px 32px 10px;
+}
+#ShareGraphs div.entry.editor
+{
+	background-color: #eee;
+	padding: 10px;
+	border: 1px solid #aaa;
+}
+#ShareGraphs div.input
+{
+	display: none;
+}
+#ShareGraphs div.output
+{
+	padding: 0;
+	margin: 0;
+	margin-bottom: 4px;
+}
+#ShareGraphs canvas.plot
+{
+	background: #fff;
+}
+#ShareGraphs div.share-name
+{
+	float: left;
+	text-align: left;
+}
+
+#ShareMenu
+{
+	background-color: #fff;
+	border-bottom: 2px solid #ccc;
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.share-menu-item
+{
+	padding: 10px;
+	text-decoration: underline;
+	color: black;
+}
+.share-menu-item.selected
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: darkmagenta;	
+}
+
+.button.form-toggle
+{
+	background-color: #ccc;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	color: black;
+}
+.button.form-toggle.selected
+{
+	background-color: darkmagenta;
+	color: white;
+}
+
+.share-form
+{
+	background-color: darkmagenta;
+	color: white; 
+	overflow: hidden;
+	transition: height 0.5s;
+}
+.share-form.shrink
+{
+	 height: 0px;
+}
+.share-form.expand
+{
+	height: 380px;
+}
+.share-form textarea, .share-form input[type=text]
+{
+	font-family: 'Lucida Console', Monaco, monospace;
+	font-size: 14px;
+	width: 95%;
+}
+.share-form textarea
+{
+	height: 110px;
+	margin-top: 2px;
+}
+.share-form > div
+{
+	padding:20px;
+}
+.share-form > div > div
+{
+	font-weight: bold;
+	font-size: 15px;
+}
+.share-form > div > button
+{
+	background-color: rgba(0, 0, 0, 0.5);
+	margin-top: 0.5em;
+}
+.download-file-form
+{
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+div.share-graph
+{
+	display: block;
+	width: 404px;
+	height: 204px;
+	overflow: hidden;
+	border: #555 2px solid;	
+	border-radius: 6px;
+	background-color: #fff;
+	position: relative;
+}
+
+div.share-file
+{
+	display: inline-block;
+	margin: 4px 10px 32px 10px;
+	text-align: center;
+	width: 200px;
+	vertical-align: top;
+}
+div.share-file img
+{
+	max-width: 200px;
+	height: 200px;
+	border: 1px solid gray
+}
+div.share-file div.img
+{
+	width: 200px;
+	height: 200px;
+	border: 1px solid gray;
+	background-color: #eee;
+}
+div.share-file.editor
+{
+	background-color: #eee;
+	padding: 12px;
+	border: 1px solid #aaa;
+
+}
+div.share-file.editor img
+{
+	border: 0;
+}
+div.author-name
+{
+	font-size: 20px;
+}
+div.author-name > a
+{
+	color: #333;
+}
+div.file-count
+{
+	font-weight: normal;
+	color: #777;
+}
+
+div.share-info
+{
+	width: 100%;
+	font-size: 14px;
+}
+
+div.share-app-icon
+{
+	color: #333;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;	
+	display: inline-block;
+	text-align: center;
+	margin-left: 24px;
+}
+div.share-app-icon img
+{
+	background-color: #eee;
+	border: 2px solid #888;
+	border-radius: 6px;
+	padding: 4px;
+	width: 48px;
+	height: 48px;	
+	display: inline-block;
+}
+
+div.share-name > div:first-child
+{
+	color: darkmagenta;
+	font-weight: bold;
+}
+
+button.share-edit
+{
+	margin-bottom: 6px;
+	background-color: purple;
+}
+button.share-edit.shrink
+{
+	border-radius: 6px;
+	transition: border-radius 0.5s;
+}
+button.share-edit.expand
+{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	transition: border-radius 0.5s;
+}
+
+button.share-submit
+{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+div.share-document-icon
+{
+	background-image: url("../images/document.png");
+	background-size: contain;
+	width: 128px;
+	height: 128px;
+}
+
+/* Grid View
+----------------------------------------- */
+.grid-view
+{
+	 position: relative;
+	 display: inline-block;
+}
+.grid-item
+{
+	position: absolute;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	padding-bottom: 12px;
+	visibility: hidden;
+	display: inline-block;
+	background-color: white;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.grid-item img
+{
+	width: 100%;
+	display: block;
+	border-bottom: 1px #ccc solid;
+}
+.grid-item-info
+{
+	width: 100%;
+	font-size: 15px;
+	color: #333;
+	padding: 4px;
+	background-color: #fff;
+	text-align: center;
+	box-sizing: border-box;
+}
+.grid-item-info > div:first-child
+{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+.grid-item a:not(.button)
+{
+	color: black;
+	text-decoration: none;
+}
+
+/* Share
+-------------------------------------- */
+#AskMathStudio
+{
+	padding-bottom: 1.5em;
+	text-align: center;
+	width: 100%;
+	padding-top: 1em;
+}
+#AskMathStudio div.entry
+{
+	margin-top: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+}
+#AskMathStudio div.entry:first-child
+{
+	margin-top: 0;
+}
+#AskMathStudio div.input
+{
+	margin: 0;
+	padding: 0;
+}
+#AskMathStudio div.input > div:first-child
+{
+	font-weight: normal;
+	margin-bottom: 6px;
+	font-style: italic;
+	font-size: 18px;
+	color: #333;
+}
+#AskMathStudio div.input > div:nth-child(2)
+{
+	font-weight: normal;
+	margin-bottom: 6px;
+	font-style: italic;
+	font-size: 14px;
+	color: #888;
+/*	min-height: 1em; */
+}
+
+#AskMathStudio div.input > div:nth-child(2).text:after
+{
+	content: " =";
+}
+#AskMathStudio div.input > div:nth-child(2).textclear:after
+{
+	content: "No answer found.";
+}
+
+#AskMathStudio div.output
+{
+	font-size: 24px;
+}
+#AskMathStudio canvas.plot
+{
+	background: white;
+}
+#AskMathStudio div.computing-image
+{
+	background-blend-mode: multiply;
+	background-color: rgb(245, 245, 245);
+}
+
+#AskLeft
+{
+	width: calc(100% - 360px);
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;	
+}
+
+#AskRight
+{
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin-left: 18px;
+}
+
+#AskHeader
+{
+	font-weight: bold;
+	text-align: center;
+	background-color: darkmagenta;
+	color: white;
+	width: 100%;
+	font-size: 24px;
+}
+#AskHeader > div
+{
+	text-align: center;
+}
+#AskHeader > div > div
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#AskInputContainer
+{
+	background-color: white;
+	padding: 6px;
+	border-bottom: 1px #ddd solid;
+}
+#AskInput
+{
+	padding:4px;
+	width: 100%;
+	font-size: 18px;
+	box-sizing: border-box;
+}
+
+#AskComputeButton, #AskSpeakButton
+{
+	font-weight: bold;
+	color: white;
+	border-radius: 6px;
+	padding: 6px;
+	padding-left: 12px;
+	padding-right: 12px;	
+	text-decoration: none;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
+}
+#AskComputeButton
+{
+	background-color: darkmagenta;
+	margin-right: 0.3em;
+}
+#AskComputeButton:active
+{
+	background-color: darkmagenta;
+}
+
+#AskSpeakButton
+{
+	margin: 0 4px;
+	background-color: #777;
+}
+#AskSpeakButton.recording
+{
+	background-color: red;
+}
+#AskSpeakButton:active
+{
+	background-color: black;
+}
+
+#AskExamples
+{
+	border-radius: 6px;
+	overflow: hidden;
+	border-bottom: 2px solid #777;
+	background: white;
+}
+#AskExamples > div.ask-heading
+{
+	font-weight: bold;
+	background-color: #777;
+	color: white;
+	padding: 8px;
+	font-size: 18px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+	-webkit-user-select: none;
+}
+#AskExamples > div.ask-heading.selected
+{
+	background-color: darkmagenta;
+}
+#AskExamples > div.ask-heading:last-child
+{
+	border: none;
+}
+#AskExamples > div.ask-heading.selected
+{
+	background-color: darkmagenta;
+}
+#AskExamples > ul
+{
+	margin: 0;
+	padding: 8px;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: none;
+	border-left: 2px solid #999;
+	border-right: 2px solid #999;
+}
+#AskExamples > ul.selected
+{
+	display: block;
+}
+#AskExamples > ul > li
+{
+	font-size: 16px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	list-style: none;
+	border-bottom: 1px solid #ddd;
+}
+#AskExamples > ul > li:last-child
+{
+	border: none;
+}
+#AskExamples > ul > li.ask-example-title
+{
+	color: darkmagenta;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 18px;
+}
+#AskExamples > ul > li > a
+{
+	color: black;
+	text-decoration: none;
+}
+
+#output
+{
+	padding: 0 12px;
+}
+
+#AskProcessing
+{
+	display: none;
+}
+
+#AskMathStudio #mathStudioButton
+{
+	font-size: 14px;
+	display: none;
+	margin-top: 12px;
+	margin-left: 12px;
+	font-style: italic;
+	text-decoration: underline;
+	color: black;
+}
+
+#computing
+{
+	display: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 933px)
+{
+	.video-container
+	{
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		height: 0;
+		overflow: hidden;
+	}
+	
+	.video-container iframe, .video-container object, .video-container embed
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 640px)
+{
+
+}
+
+/* Phone Screen 
+-------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 640px)
+{
+	body { overflow: auto; }
+/*	body.MathStudio { background-color: #333; } */
+/*	#toggleCatalogButton { display: none; }	*/
+	
+	#frameTop, #frameLeft, #frameRight
+	{
+		position: static;
+		width: 100%;
+		margin-left: 0;
+	}
+	
+	#frameRight
+	{
+		border-left: 0;
+	}
+
+	#frameRightTop { position:static; width:100%; }
+	#sideNav { display:none; }
+	#bottomNav { display:block; }
+	button.menu-item { float:none; }
+	div.menu-bar { float:left; }	
+	#pageContent { margin: 0; }
+	#frameTop.manual { display: none; }
+	#mathstudio-logo { display: none; }
+/*	#copyright { background-color: #333; } */
+
+	#frameBottom
+	{
+		padding-top: 2em;
+		background: white;
+/*		
+		margin: 8px;
+		overflow: hidden;
+		border: darkmagenta 2px solid;
+		border-radius: 6px;
+		background-color: #fdf4ff;
+*/
+	}
+	
+	#frameRightTop
+	{
+		width: 100%;
+	}
+	
+	/* Welcome
+	-------------------------------------- */
+	div.welcome-box > div:first-child, div.welcome-box > div:nth-child(2)
+	{
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	div.welcome-box > div:first-child
+	{
+		margin-bottom: 0.5em;
+		padding: 8px;
+	}
+	div.welcome-box > div:nth-child(2)
+	{
+		padding: 0;
+	}
+	div.entry div.plot, div.entry div.plot3d
+	{
+		max-width: 100%;
+	}	
+	div.welcome-text
+	{
+		margin: 8px;
+	}	
+	
+	/* Share
+	-------------------------------------- */
+	#AskLeft, #AskRight
+	{
+		width: 95%;
+		margin-left: 0;
+		margin-top: 0.5em;
+		margin-bottom: 1em;
+	}
+	
+	#AskExamples
+	{
+		margin: 0;
+	}	
+	
+
+}

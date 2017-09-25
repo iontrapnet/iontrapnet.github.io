@@ -1,0 +1,4 @@
+{
+"name": "Quantum Computing Walk-through",
+"content": "// This example demonstrates principles of quantum computing.\n //\n VectorSize 8\n SetViewMode 2\n \n Display \"<h3>The square surface represents<br>256 states of 8 qbits.\"\n Delay 3000\n Delay 1\n \n Display \"<h3>Initial state of quantum register is state 0<br>with no other states contributing.\"\n Delay 3000\n Delay 1\n \n Display \"<h3>Hadamard gate creates superposition<br>of states 0 and 1 for given qbit (here 2).\"\n Hadamard 2\n Delay 1000\n Hadamard 2\n Delay 1000\n Hadamard 2\n Delay 1000\n Delay 1\n \n Display \"<h3>SigmaX gate (quantum not) flips states 0 and 1<br>for given qbit (here 0).\"\n SigmaX 0\n Delay 1000\n SigmaX 0\n Delay 1000\n SigmaX 0\n Delay 1000\n Delay 1\n"
+}

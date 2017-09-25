@@ -1,0 +1,4 @@
+{
+"name": "Default Example",
+"content": "// This is a simple example.\n //\n VectorSize 8\n \n SigmaX 2\n Hadamard 2\n Hadamard 1\n Hadamard 0\n QFT 0, 8\n \n SetViewMode 2\n \n Delay 10\n \n for i = 0; i < 360; i += 5\n   SetViewAngle Math.PI * i / 180\n endfor"
+}

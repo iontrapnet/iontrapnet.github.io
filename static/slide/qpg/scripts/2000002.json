@@ -1,0 +1,4 @@
+{
+"name": "Reversible computation",
+"content": "// This example demonstrates reversible computation.\n //\n VectorSize 8\n \n // Compile and run, then keep stepping back until reaching\n // the initial state.\n \n Hadamard 0\n SigmaX 1\n Hadamard 2\n Ry 2, Math.PI / 6\n Hadamard 3\n \n QFT 0, 4"
+}

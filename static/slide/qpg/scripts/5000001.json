@@ -1,0 +1,4 @@
+{
+"name": "Hadamard Gate",
+"content": "// This example demonstrates properties of Hadamard gate.\n //\n VectorSize 8\n \n Delay 500\n \n for i = 0; i < 8; i++\n     Display \"Creating superposition of all states, bit \" + i\n   Hadamard i\n endfor\n \n Delay 2000\n Delay 500\n \n for i = 0; i < 8; i++\n     Display \"Applying Hadamard gates in the same order, bit \" + i\n   Hadamard i\n endfor\n \n Delay 2000\n Delay 1\n \n for i = 0; i < 8; i++\n     Display \"Creating superposition of all states, bit \" + i\n   Hadamard i\n endfor\n \n Delay 500\n \n for i = 7; i >= 0; i--\n     Display \"Applying Hadamard gates in reverse order, bit \" + i\n   Hadamard i\n endfor"
+}
