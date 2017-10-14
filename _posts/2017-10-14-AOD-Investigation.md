@@ -9,7 +9,7 @@ title: AOD Investigation
 
 0. shift laser frequency
 1. in Laser locking system: "noise eater", high bandwidth frequency control
-2. shift laser frequency of the $\sigma_+$ & \(\pi\) in Raman Operation
+2. shift laser frequency of the $\sigma_+$ & $\pi$ in Raman Operation
 
 
 ## How Hempel used AOD for addressing:
