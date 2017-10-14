@@ -64,7 +64,8 @@ title: AOD Investigation
 * 1st order diffraction efficiency, rf.vl. At $633\mathrm{nm}$ for $0.7\mathrm{W}$ RF, plateau of $92%$ over $\pm 10\mathrm{MHz}$ around $f_0$ with a fall-off to $\sim 72%$ at the $\pm 20\mathrm{MHz}$ band edges.
 
 
-## Kumph thesis *2D Arrays of Ion Traps for Large Scale Integration of Quantum Information Processors*:
+## Kumph thesis:
+* *2D Arrays of Ion Traps for Large Scale Integration of Quantum Information Processors*
 * $^{40}\mathrm{Ca}^+$
 * No AOD
 * AOM used in
