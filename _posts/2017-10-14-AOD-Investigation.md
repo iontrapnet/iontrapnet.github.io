@@ -39,16 +39,16 @@ title: AOD Investigation
 
 #### The paper Hempel cited about EOD: [New J. Phys. 15 123012](http://dx.doi.org/10.1088/1367-2630/15/12/123012)
 * Switching event between neighboring ions takes $15\mu\mathrm{s}$.
-<div align=center>
+<center>
 	![](https://www.iontrap.net/-/pic/AOD-investigation-7a.PNG)<br>Time dependence of the voltage on the EOD switching between two neighboring ions.
-<div>
+</center>
 
 * **Phase changing** keeps for $>100\mu\mathrm{s}$ after switch, but that doesn't affect the ac-Stark effect.
 * Calibration routine (Accuracy of 50nm):
-<div align=center>
+<center>
 	<img src="https://www.iontrap.net/-/pic/AOD-investigation-7a.PNG" width="400">
 	<img src="https://www.iontrap.net/-/pic/AOD-investigation-9.PNG" width="300">
-</div>
+</center>
 	1. With the mortorized lens, move the beam onto the center of the ion string
 	2. Find the EOD voltages for every individual ions. Fit a Gaussian envelope to the excitation rate as a function of the (?)lens position(?) (Why not as a function of EOD voltage?). 
 
