@@ -84,6 +84,8 @@ title: AOD Investigation
 #### Standard
 * Acousto-Optic Beam Deflector for UV systems [(AOBD-UV) 3246 or **3283**](https://goochandhousego.com/wp-content/uploads/2016/04/GH-AO-UV-Beam-Deflector.pdf). (3283 is prefered.)
 	* Both of them work on 355nm and have 1% insertion loss.
+	* Acoustic velocity in the crystal: $5.74\mathrm{mm/\mu s}$.
+	* Transition time depends on diameter of the beam: $\Delta t = 175\mathrm{ns/mm} d_{beam}$.
 	* The major difference between 3246 and 3283 is RF bandwidth, and thus scan angle. In addition, 3283 has a more flat diffraction efficiency. In order to cover a $40\mu\mathrm{m}$ range,
 		* 3246: 4.9mrad ~ distance=8.2mm
 		* 3283: 1.2mrad ~ distance=33mm
