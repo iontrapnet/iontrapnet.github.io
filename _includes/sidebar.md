@@ -4,6 +4,8 @@
 
 ### [Projects](/projects)
 
+### [Members](/members)
+
 ### [Links](/links)
 
 ### [Notes](/notes)
