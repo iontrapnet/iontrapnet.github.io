@@ -46,8 +46,8 @@ title: AOD Investigation
 * **Phase changing** keeps for $>100\mu\mathrm{s}$ after switch, but that doesn't affect the ac-Stark effect.
 * Calibration routine (Accuracy of 50nm):
 <center>
-	<img src="https://www.iontrap.net/-/pic/AOD-investigation-7a.PNG" width="400">
-	<img src="https://www.iontrap.net/-/pic/AOD-investigation-9.PNG" width="300">
+	<img src="https://www.iontrap.net/-/img/AOD-investigation-7a.PNG" width="400">
+	<img src="https://www.iontrap.net/-/img/AOD-investigation-9.PNG" width="300">
 </center>
 	1. With the mortorized lens, move the beam onto the center of the ion string
 	2. Find the EOD voltages for every individual ions. Fit a Gaussian envelope to the excitation rate as a function of the (?)lens position(?) (Why not as a function of EOD voltage?). 
