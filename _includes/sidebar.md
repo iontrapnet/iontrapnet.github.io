@@ -1,5 +1,7 @@
 ### [Research](/research)
 
+### [Wiki](/wiki)
+
 ### [Groups](/groups)
 
 ### [Projects](/projects)
@@ -11,5 +13,3 @@
 ### [Notes](/notes)
 
 ### [Blog](/blog)
-
-### [GitHub](http://github.com/iontrapnet){:target="_blank"}

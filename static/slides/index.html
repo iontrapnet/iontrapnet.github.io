@@ -9,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="//cdn.bootcss.com/reveal.js/3.5.0/css/reveal.css">
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="//cdn.bootcss.com/reveal.js/3.5.0/css/theme/beige.css" id="theme">
+  <!--link rel="stylesheet" href="//cdn.bootcss.com/reveal.js/3.5.0/css/theme/beige.css" id="theme"-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/reveal.js/3.5.0/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
@@ -60,7 +61,7 @@ function GET()  {
             md.setAttribute('data-separator-vertical',decodeURIComponent(val.split('=')[1]));
         } else {
             var file = decodeURIComponent(val.split('=').slice(-1)[0].split('#')[0]);
-            md.setAttribute('data-markdown', file);
+            md.setAttribute('data-markdown', 'https://raw.githubusercontent.com/iontrapnet/iontrapnet.github.io/master/' + file);
             document.title = file;
         }
     }
