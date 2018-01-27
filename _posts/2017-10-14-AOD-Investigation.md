@@ -2,7 +2,7 @@
 layout: szhang_note
 category: notes
 math: true
-title: AOD Investigation
+title: 二维AOD调研
 ---
 
 ## How Nigg used AOM:

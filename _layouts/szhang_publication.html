@@ -8,7 +8,9 @@
     </a>
     {% endif %}
     <h6>{{ page.date | date_to_long_string }}</h6>
+    {% if page.journal %}
     published at <a href="{{ page.link }}" target="_blank"><em>{{ page.journal }}</em>, {{ page.volume }}</a><br>
+    {% endif %}
     {% if page.authors %}
     <span>by {{ page.authors }}</span>
     {% endif %}
