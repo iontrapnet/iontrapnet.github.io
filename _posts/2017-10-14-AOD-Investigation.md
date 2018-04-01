@@ -103,3 +103,10 @@ title: 二维AOD调研
 * [EOD](http://www.leysop.com/eod_q_switch.htm)
 
 但确实就是想要有大偏转很难, 1kV的驱动只能偏转几mrad.
+
+## 进展
+* 2018.3.8 Gooch & Housego 的两支一维AOD到货.
+参数见 [97-03283-01](https://github.com/iontrapnet/Jun_Wang/blob/master/%E8%B4%AD%E7%BD%AE/GoochHousegoAOD/97-03283-01%C2%A0Rev%C2%A0B.pdf), 厂家提供的偏转角与RF频率的关系如 [图](https://github.com/iontrapnet/Jun_Wang/blob/master/%E8%B4%AD%E7%BD%AE/GoochHousegoAOD/diffractionAngelVS.Frequency(97-03283-01).png) .
+
+* 3月下旬, 检验了单只AOD的衍射效率, 370nm最高到88%, 399nm最高到92% (感谢李博文). 检验了偏转范围: 100~120MHz约1mrad, 与厂家描述一致.
+* 4.1 尝试两AOD级联补偿消频移, 实现了沿45$^\circ$角分线方向偏转370nm. 频移是否因此抵消尚未检验.
